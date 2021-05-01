@@ -9,7 +9,7 @@ import Foundation
 import SENetworking
 
 struct RecommendedRequest: Encodable {
-    var id: String
+    let id: String
 }
 
 protocol RecommendedRequestProtocol {
@@ -17,7 +17,7 @@ protocol RecommendedRequestProtocol {
 }
 
 extension ApiEndpoints {
-    static func getRecommended(with recommendedRequestDTO: RecommendedRequest) -> Endpoint<[MovieModel]> {
+    static func getRecommended(with recommendedRequestDTO: RecommendedRequest) -> Endpoint<MoviesModel> {
         return Endpoint(path: "details/recommended/\(recommendedRequestDTO.id).json",
                         method: .get,
                         queryParametersEncodable: recommendedRequestDTO)

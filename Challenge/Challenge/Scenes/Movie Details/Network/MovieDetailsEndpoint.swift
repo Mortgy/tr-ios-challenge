@@ -9,7 +9,7 @@ import Foundation
 import SENetworking
 
 struct MovieDetailsRequest: Encodable {
-    var id: String
+    let id: String
 }
 
 protocol MovieDetailsRequestProtocol {

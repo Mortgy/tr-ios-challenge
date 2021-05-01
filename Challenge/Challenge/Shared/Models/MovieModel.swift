@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct MoviesModel: Codable {
+    let movies: [MovieModel]?
+}
+
 struct MovieModel: Codable {
     let id: Int?
     let name: String?

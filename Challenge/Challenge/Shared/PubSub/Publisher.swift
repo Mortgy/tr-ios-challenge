@@ -22,7 +22,7 @@ class Publisher<T> {
         self.value = value
     }
     
-    func bind(_ subscriber: @escaping (T?) -> Void) {
+    func subscribe(_ subscriber: @escaping (T?) -> Void) {
         subscriber(value)
         self.subscribers.append(subscriber)
     }

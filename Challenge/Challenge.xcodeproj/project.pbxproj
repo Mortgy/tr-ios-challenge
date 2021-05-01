@@ -20,6 +20,7 @@
 		50A8CD05263DBFDB007ED9BA /* MoviesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD04263DBFDB007ED9BA /* MoviesEndpoint.swift */; };
 		50A8CD07263DBFF8007ED9BA /* MovieDetailsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD06263DBFF8007ED9BA /* MovieDetailsEndpoint.swift */; };
 		50A8CD09263DC036007ED9BA /* RecommendedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD08263DC036007ED9BA /* RecommendedEndpoint.swift */; };
+		50A8CD0D263DCD64007ED9BA /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD0C263DCD64007ED9BA /* Publisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		50A8CD04263DBFDB007ED9BA /* MoviesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesEndpoint.swift; sourceTree = "<group>"; };
 		50A8CD06263DBFF8007ED9BA /* MovieDetailsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsEndpoint.swift; sourceTree = "<group>"; };
 		50A8CD08263DC036007ED9BA /* RecommendedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedEndpoint.swift; sourceTree = "<group>"; };
+		50A8CD0C263DCD64007ED9BA /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		50A8CCF3263DBB35007ED9BA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				50A8CD0B263DCCA8007ED9BA /* PubSub */,
 				50A8CCF4263DBB3E007ED9BA /* Models */,
 			);
 			path = Shared;
@@ -260,6 +263,14 @@
 				50A8CCBA263D6D33007ED9BA /* AppDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		50A8CD0B263DCCA8007ED9BA /* PubSub */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD0C263DCD64007ED9BA /* Publisher.swift */,
+			);
+			path = PubSub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A8CD0D263DCD64007ED9BA /* Publisher.swift in Sources */,
 				50A8CCF6263DBB83007ED9BA /* MovieModel.swift in Sources */,
 				50A8CCF8263DBBB9007ED9BA /* MovieDetailsModel.swift in Sources */,
 				50A8CD05263DBFDB007ED9BA /* MoviesEndpoint.swift in Sources */,

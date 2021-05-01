@@ -15,6 +15,12 @@ class MoviesTableViewController: UITableViewController {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
+        
+        self.viewModel.movies.subscribe { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -23,12 +29,8 @@ class MoviesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: MovieTableViewCell.identifier())
+        viewModel.fetchData()
     }
 }
 
@@ -49,9 +51,9 @@ extension MoviesTableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier(), for: indexPath) as! MovieTableViewCell
         // Configure the cell...
+        cell.configure(movieViewModel: viewModel.movies.value![indexPath.row])
         
         return cell
     }

@@ -8,7 +8,10 @@
 import Foundation
 
 class Publisher<T> {
-    private var subscribers: [((T?) -> Void)] = []
+    
+    typealias Subscriber = ((T?) -> Void)
+    
+    private var subscribers: [Subscriber] = []
     
     var value: T? {
         didSet {
@@ -22,9 +25,8 @@ class Publisher<T> {
         self.value = value
     }
     
-    func subscribe(_ subscriber: @escaping (T?) -> Void) {
+    func subscribe(_ subscriber: @escaping Subscriber) {
         subscriber(value)
         self.subscribers.append(subscriber)
     }
-    
 }

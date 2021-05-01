@@ -32,6 +32,12 @@
 		50A8CD22263DEC42007ED9BA /* NetworkServices+Recommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD21263DEC42007ED9BA /* NetworkServices+Recommended.swift */; };
 		50A8CD2B263DEFD6007ED9BA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD2A263DEFD6007ED9BA /* Coordinator.swift */; };
 		50A8CD2E263DF063007ED9BA /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD2D263DF063007ED9BA /* MainCoordinator.swift */; };
+		50A8CD37263DFB69007ED9BA /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD35263DFB69007ED9BA /* MovieTableViewCell.swift */; };
+		50A8CD38263DFB69007ED9BA /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A8CD36263DFB69007ED9BA /* MovieTableViewCell.xib */; };
+		50A8CD3E263DFE28007ED9BA /* TableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD3D263DFE27007ED9BA /* TableViewCell+Extension.swift */; };
+		50A8CD40263E0156007ED9BA /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD3F263E0156007ED9BA /* MovieCellViewModel.swift */; };
+		50A8CD44263E0DC9007ED9BA /* NetworkServices+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD43263E0DC9007ED9BA /* NetworkServices+Image.swift */; };
+		50A8CD47263E0E23007ED9BA /* ImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD46263E0E23007ED9BA /* ImageEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +88,12 @@
 		50A8CD21263DEC42007ED9BA /* NetworkServices+Recommended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkServices+Recommended.swift"; sourceTree = "<group>"; };
 		50A8CD2A263DEFD6007ED9BA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		50A8CD2D263DF063007ED9BA /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		50A8CD35263DFB69007ED9BA /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		50A8CD36263DFB69007ED9BA /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		50A8CD3D263DFE27007ED9BA /* TableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		50A8CD3F263E0156007ED9BA /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
+		50A8CD43263E0DC9007ED9BA /* NetworkServices+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkServices+Image.swift"; sourceTree = "<group>"; };
+		50A8CD46263E0E23007ED9BA /* ImageEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +147,7 @@
 			children = (
 				50A8CD0A263DC055007ED9BA /* App */,
 				50A8CCF9263DBF0D007ED9BA /* Scenes */,
+				50A8CD33263DFB22007ED9BA /* Components */,
 				50A8CCF3263DBB35007ED9BA /* Shared */,
 				50A8CCEA263DB373007ED9BA /* NetworkServices */,
 				50A8CCC3263D6D43007ED9BA /* Assets.xcassets */,
@@ -174,6 +187,7 @@
 		50A8CCF3263DBB35007ED9BA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				50A8CD3C263DFE0B007ED9BA /* Extensions */,
 				50A8CD29263DEFC9007ED9BA /* Coordinator */,
 				50A8CD0B263DCCA8007ED9BA /* PubSub */,
 				50A8CCF4263DBB3E007ED9BA /* Models */,
@@ -378,6 +392,66 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		50A8CD33263DFB22007ED9BA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD34263DFB36007ED9BA /* MovieTableViewCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		50A8CD34263DFB36007ED9BA /* MovieTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD3B263DFB7E007ED9BA /* Controller */,
+				50A8CD3A263DFB78007ED9BA /* View */,
+				50A8CD39263DFB6E007ED9BA /* ViewModel */,
+			);
+			path = MovieTableViewCell;
+			sourceTree = "<group>";
+		};
+		50A8CD39263DFB6E007ED9BA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD3F263E0156007ED9BA /* MovieCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		50A8CD3A263DFB78007ED9BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD36263DFB69007ED9BA /* MovieTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		50A8CD3B263DFB7E007ED9BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD35263DFB69007ED9BA /* MovieTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		50A8CD3C263DFE0B007ED9BA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD45263E0E01007ED9BA /* Image */,
+				50A8CD3D263DFE27007ED9BA /* TableViewCell+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		50A8CD45263E0E01007ED9BA /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD43263E0DC9007ED9BA /* NetworkServices+Image.swift */,
+				50A8CD46263E0E23007ED9BA /* ImageEndpoint.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -489,6 +563,7 @@
 			files = (
 				50A8CCC7263D6D43007ED9BA /* LaunchScreen.storyboard in Resources */,
 				50A8CD14263DD098007ED9BA /* MoviesTableViewController.xib in Resources */,
+				50A8CD38263DFB69007ED9BA /* MovieTableViewCell.xib in Resources */,
 				50A8CCC4263D6D43007ED9BA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,10 +599,15 @@
 				50A8CD17263DD3F6007ED9BA /* NetworkServices.swift in Sources */,
 				50A8CD2B263DEFD6007ED9BA /* Coordinator.swift in Sources */,
 				50A8CCBB263D6D33007ED9BA /* AppDelegate.swift in Sources */,
+				50A8CD47263E0E23007ED9BA /* ImageEndpoint.swift in Sources */,
+				50A8CD37263DFB69007ED9BA /* MovieTableViewCell.swift in Sources */,
+				50A8CD40263E0156007ED9BA /* MovieCellViewModel.swift in Sources */,
 				50A8CD19263DD978007ED9BA /* MovieDetailsViewModel.swift in Sources */,
 				50A8CCED263DB7DE007ED9BA /* NetworkConfiguration.swift in Sources */,
 				50A8CD1C263DDF5A007ED9BA /* RecommendedViewModel.swift in Sources */,
 				50A8CD13263DD098007ED9BA /* MoviesTableViewController.swift in Sources */,
+				50A8CD3E263DFE28007ED9BA /* TableViewCell+Extension.swift in Sources */,
+				50A8CD44263E0DC9007ED9BA /* NetworkServices+Image.swift in Sources */,
 				50A8CD2E263DF063007ED9BA /* MainCoordinator.swift in Sources */,
 				50A8CCF2263DBA0D007ED9BA /* ApiEndpoints.swift in Sources */,
 				50A8CD0F263DD053007ED9BA /* MoviesViewModel.swift in Sources */,

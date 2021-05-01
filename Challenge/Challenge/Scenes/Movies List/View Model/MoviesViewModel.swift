@@ -10,7 +10,7 @@ import SENetworking
 
 class MoviesViewModel : MoviesRequestProtocol, NetworkServicesProtocol {
 
-    private let networkServices: NetworkServices
+    private weak var networkServices: NetworkServices?
     private(set) var movies: Publisher<[MovieModel]> = Publisher([])
     private(set) var errorMessage: Publisher<String> = Publisher(nil)
 
@@ -23,7 +23,7 @@ class MoviesViewModel : MoviesRequestProtocol, NetworkServicesProtocol {
     }
     
     func fetchData() {
-        networkRequest = networkServices.fetchMovies(with: moviesRequest){ [weak self] result in
+        networkRequest = networkServices?.fetchMovies(with: moviesRequest){ [weak self] result in
             self?.movies.value = result.movies
         } fail: { [weak self] message in
             self?.errorMessage.value = message

@@ -46,6 +46,7 @@
 		50A8CD55263EE090007ED9BA /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD53263EE090007ED9BA /* MovieCollectionViewCell.swift */; };
 		50A8CD56263EE090007ED9BA /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A8CD54263EE090007ED9BA /* MovieCollectionViewCell.xib */; };
 		50A8CD58263EE0AB007ED9BA /* CollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD57263EE0AB007ED9BA /* CollectionViewCell+Extension.swift */; };
+		50A8CD5B263F1D45007ED9BA /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CD5A263F1D45007ED9BA /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		50A8CD53263EE090007ED9BA /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		50A8CD54263EE090007ED9BA /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		50A8CD57263EE0AB007ED9BA /* CollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		50A8CD5A263F1D45007ED9BA /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 		50A8CCF3263DBB35007ED9BA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				50A8CD59263F1D38007ED9BA /* Protocols */,
 				50A8CD3C263DFE0B007ED9BA /* Extensions */,
 				50A8CD29263DEFC9007ED9BA /* Coordinator */,
 				50A8CD0B263DCCA8007ED9BA /* PubSub */,
@@ -468,6 +471,14 @@
 			path = MovieCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		50A8CD59263F1D38007ED9BA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				50A8CD5A263F1D45007ED9BA /* Alert.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -631,6 +642,7 @@
 				50A8CD13263DD098007ED9BA /* MoviesTableViewController.swift in Sources */,
 				50A8CD3E263DFE28007ED9BA /* TableViewCell+Extension.swift in Sources */,
 				50A8CD55263EE090007ED9BA /* MovieCollectionViewCell.swift in Sources */,
+				50A8CD5B263F1D45007ED9BA /* Alert.swift in Sources */,
 				50A8CD44263E0DC9007ED9BA /* NetworkServices+Image.swift in Sources */,
 				50A8CD2E263DF063007ED9BA /* MoviesListCoordinator.swift in Sources */,
 				50A8CCF2263DBA0D007ED9BA /* ApiEndpoints.swift in Sources */,

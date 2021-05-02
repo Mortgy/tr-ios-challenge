@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoviesTableViewController: UITableViewController {
+class MoviesTableViewController: UITableViewController, Alert {
     
     var viewModel: MoviesViewModel
     weak var coordinator: MoviesListCoordinator?
@@ -15,12 +15,6 @@ class MoviesTableViewController: UITableViewController {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
-        
-        self.viewModel.movies.subscribe { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -29,16 +23,55 @@ class MoviesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: MovieTableViewCell.identifier())
+        setupUI()
+        register()
         viewModel.fetchData()
     }
 }
 
+// MARK: - Setup UI
+extension MoviesTableViewController {
+    
+    func setupUI() {
+        title = "Movies"
+        
+        //Use large titles
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+    }
+}
+
+// MARK: - Subscribers
+extension MoviesTableViewController {
+    
+    func register() {
+        registerSubscribers()
+        registerCell()
+    }
+    
+    func registerSubscribers() {
+        self.viewModel.movies.subscribe { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        
+        self.viewModel.errorMessage.subscribe { [weak self] message in
+            guard let message = message else { return }
+            self?.showAlert(title: "Error", message: message)
+        }
+    }
+    
+    func registerCell() {
+        tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: MovieTableViewCell.identifier())
+    }
+}
+
+// MARK: - Coordinator
 extension MoviesTableViewController: Coordinated{
     func coordinatorInstance() -> Coordinator? {
         self.coordinator
     }
-    
 }
 
 // MARK: - Table view data source

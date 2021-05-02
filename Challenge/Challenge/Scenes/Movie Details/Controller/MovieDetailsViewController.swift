@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController {
+class MovieDetailsViewController: UIViewController, Alert {
     
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var movieReleaseDateLabel: UILabel!
@@ -59,6 +59,11 @@ extension MovieDetailsViewController {
                 self?.moviePosterImageView.image = UIImage(data: data)
             }
         }
+        
+        self.viewModel.errorMessage.subscribe { [weak self] message in
+            guard let message = message else { return }
+            self?.showAlert(title: "Error", message: message)
+        }
     }
     
     func setupRecommended() {
@@ -75,6 +80,11 @@ extension MovieDetailsViewController {
             } else {
                 self?.recommendationsStackView.isHidden = true
             }
+        }
+        
+        collectionView.viewModel.errorMessage.subscribe { [weak self] message in
+            guard let message = message else { return }
+            self?.showAlert(title: "Error", message: message)
         }
     }
 }

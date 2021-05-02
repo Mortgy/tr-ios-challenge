@@ -10,8 +10,8 @@ import SENetworking
 
 class RecommendedViewModel : RecommendedRequestProtocol, NetworkServicesProtocol {
     
-    private let networkServices: NetworkServices
-    private(set) var recommended: Publisher<[MovieModel]> = Publisher([])
+    private(set) var networkServices: NetworkServices
+    private(set) var recommended: Publisher<[MovieCellViewModel]> = Publisher([])
     private(set) var errorMessage: Publisher<String> = Publisher(nil)
     
     internal var recommendedRequest: RecommendedRequest
@@ -24,7 +24,9 @@ class RecommendedViewModel : RecommendedRequestProtocol, NetworkServicesProtocol
     
     func fetchData() {
         networkRequest = networkServices.fetchRecommended(with: recommendedRequest){ [weak self] result in
-            self?.recommended.value = result.movies
+            self?.recommended.value = result.movies?.compactMap {
+                MovieCellViewModel(movie: $0, networkService: self?.networkServices)
+            }
         } fail: { [weak self] message in
             self?.errorMessage.value = message
         }

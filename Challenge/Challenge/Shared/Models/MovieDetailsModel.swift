@@ -12,7 +12,7 @@ struct MovieDetailsModel: Codable {
     let name: String?
     let description: String?
     let notes: String?
-    let rating: Int?
+    let rating: Float?
     let picture: String?
     let releaseDate: Int
     

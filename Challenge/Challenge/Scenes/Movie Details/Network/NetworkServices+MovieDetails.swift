@@ -10,8 +10,7 @@ import SENetworking
 
 extension NetworkServices {
     
-    func fetchDetails(with request: MovieDetailsRequest, success: @escaping (MovieDetailsModel) -> Void,
-                          fail: @escaping (String) -> Void) -> NetworkCancellable? {
+    func fetchDetails(with request: MovieDetailsRequest, success: @escaping (MovieDetailsModel) -> Void, fail: @escaping (String) -> Void) -> NetworkCancellable? {
         let endpoint = ApiEndpoints.getMovieDetails(with: request)
         return DIContainer.shared.apiDataTransferService.request(with: endpoint) { result in
             
@@ -23,4 +22,8 @@ extension NetworkServices {
             success(movie)
         }
     }
+}
+
+class Network: NetworkServices {
+    
 }

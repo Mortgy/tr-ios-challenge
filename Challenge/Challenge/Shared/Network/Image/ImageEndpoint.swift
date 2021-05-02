@@ -18,8 +18,6 @@ protocol ImageRequestProtocol {
 
 extension ApiEndpoints {
     static func getImage(path: String) -> Endpoint<Data> {
-        return Endpoint(path: path,
-                        method: .get,
-                        responseDecoder: RawDataResponseDecoder())
+        return Endpoint(path: path, method: .get, responseDecoder: RawDataResponseDecoder())
     }
 }

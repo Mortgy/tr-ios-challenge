@@ -11,7 +11,7 @@ import UIKit
 class MoviesListCoordinator: NSObject, Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var networkServices = NetworkServices()
+    var networkServices: NetworkServices = Network()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

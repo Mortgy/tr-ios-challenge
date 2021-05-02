@@ -10,8 +10,7 @@ import SENetworking
 
 extension NetworkServices {
     
-    func fetchRecommended(with request: RecommendedRequest, success: @escaping (MoviesModel) -> Void,
-                          fail: @escaping (String) -> Void) -> NetworkCancellable? {
+    func fetchRecommended(with request: RecommendedRequest, success: @escaping (MoviesModel) -> Void, fail: @escaping (String) -> Void) -> NetworkCancellable? {
         let endpoint = ApiEndpoints.getRecommended(with: request)
         return DIContainer.shared.apiDataTransferService.request(with: endpoint) { result in
             

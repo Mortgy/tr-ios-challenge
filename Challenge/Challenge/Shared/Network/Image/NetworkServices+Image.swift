@@ -9,8 +9,7 @@ import Foundation
 import SENetworking
 
 extension NetworkServices {
-    func fetchImage(path: String, success: @escaping (Data) -> Void,
-                          fail: @escaping (String) -> Void) -> NetworkCancellable? {
+    func fetchImage(path: String, success: @escaping (Data) -> Void, fail: @escaping (String) -> Void) -> NetworkCancellable? {
         let endpoint = ApiEndpoints.getImage(path: path)
         return DIContainer.shared.apiDataTransferService.request(with: endpoint) { result in
             

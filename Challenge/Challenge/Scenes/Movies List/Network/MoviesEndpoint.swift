@@ -19,7 +19,6 @@ protocol MoviesRequestProtocol {
 extension ApiEndpoints {
     static func getMovies(with movieRequestDTO: MoviesRequest) -> Endpoint<MoviesModel> {
         return Endpoint(path: "list.json",
-                        method: .get,
-                        queryParametersEncodable: movieRequestDTO)
+                        method: .get)
     }
 }

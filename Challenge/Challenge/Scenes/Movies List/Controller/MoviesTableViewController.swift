@@ -10,8 +10,8 @@ import UIKit
 class MoviesTableViewController: UITableViewController {
     
     var viewModel: MoviesViewModel
-    weak var coordinator: Coordinator?
-    init(viewModel: MoviesViewModel, coordinator: Coordinator) {
+    weak var coordinator: MoviesListCoordinator?
+    init(viewModel: MoviesViewModel, coordinator: MoviesListCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -56,5 +56,9 @@ extension MoviesTableViewController {
         cell.configure(movieViewModel: viewModel.movies.value![indexPath.row])
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.open(movieId: viewModel.movies.value![indexPath.row].movie.id!)
     }
 }

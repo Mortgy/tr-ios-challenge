@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainCoordinator: NSObject, Coordinator {
+class MoviesListCoordinator: NSObject, Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var networkServices = NetworkServices()
@@ -38,7 +38,18 @@ class MainCoordinator: NSObject, Coordinator {
     }
 }
 
-extension MainCoordinator : UINavigationControllerDelegate {
+// MARK: - Coordinations
+extension MoviesListCoordinator {
+    func open(movieId: Int) {
+        let movieDetailsCoordinator = MovieDetailsCoordinator(navigationController: navigationController, movieId: movieId)
+        movieDetailsCoordinator.parentCoordinator = self
+        childCoordinators.append(movieDetailsCoordinator)
+        movieDetailsCoordinator.start()
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+extension MoviesListCoordinator : UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
             return

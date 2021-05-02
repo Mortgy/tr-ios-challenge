@@ -10,6 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsViewController" customModule="Challenge" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="Y7A-PL-398" id="d1l-9e-LOl"/>
+                <outlet property="movieDescriptionLabel" destination="0qQ-rq-bxW" id="9c5-st-OdO"/>
+                <outlet property="movieNameLabel" destination="L68-Jt-rCb" id="IDS-VU-kIT"/>
+                <outlet property="moviePlotLabel" destination="PLc-B3-pKI" id="iw6-2J-TMQ"/>
+                <outlet property="moviePosterImageView" destination="K0o-QU-Jrn" id="eMm-uo-EiW"/>
+                <outlet property="movieReleaseDateLabel" destination="PBP-vr-7lo" id="6qy-AP-u1O"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,13 +27,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vW-xf-fav">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LST-Tz-zXf">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LST-Tz-zXf">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="agy-n8-cAF">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="1104"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K0o-QU-Jrn">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K0o-QU-Jrn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="455.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="K0o-QU-Jrn" secondAttribute="height" multiplier="2:2.2" id="4NV-Le-VW3"/>
@@ -92,10 +98,13 @@
                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-PL-398">
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-PL-398" customClass="RecommendedCollectionView" customModule="Challenge" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="38" width="374" height="170"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qU1-m4-yID">
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="170" id="eTb-bM-G6Y"/>
+                                                                    </constraints>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qU1-m4-yID">
                                                                         <size key="itemSize" width="128" height="128"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -120,7 +129,6 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="agy-n8-cAF" firstAttribute="height" secondItem="LST-Tz-zXf" secondAttribute="height" priority="250" id="2PO-7C-3aH"/>
-                                <constraint firstItem="agy-n8-cAF" firstAttribute="top" secondItem="mqb-Pg-tn7" secondAttribute="top" id="7Je-py-od6"/>
                                 <constraint firstItem="agy-n8-cAF" firstAttribute="width" secondItem="LST-Tz-zXf" secondAttribute="width" id="Bbm-4x-PFa"/>
                                 <constraint firstAttribute="trailing" secondItem="agy-n8-cAF" secondAttribute="trailing" id="Sya-EH-0VH"/>
                                 <constraint firstItem="agy-n8-cAF" firstAttribute="leading" secondItem="LST-Tz-zXf" secondAttribute="leading" id="URZ-Yr-H0v"/>

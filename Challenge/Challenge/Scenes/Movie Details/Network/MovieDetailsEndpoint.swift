@@ -9,7 +9,7 @@ import Foundation
 import SENetworking
 
 struct MovieDetailsRequest: Encodable {
-    let id: String
+    let id: Int
 }
 
 protocol MovieDetailsRequestProtocol {
@@ -19,7 +19,6 @@ protocol MovieDetailsRequestProtocol {
 extension ApiEndpoints {
     static func getMovieDetails(with movieDetailsRequestDTO: MovieDetailsRequest) -> Endpoint<MovieDetailsModel> {
         return Endpoint(path: "details/\(movieDetailsRequestDTO.id).json",
-                        method: .get,
-                        queryParametersEncodable: movieDetailsRequestDTO)
+                        method: .get)
     }
 }

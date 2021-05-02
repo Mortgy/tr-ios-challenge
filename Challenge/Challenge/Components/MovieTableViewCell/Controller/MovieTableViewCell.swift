@@ -10,7 +10,7 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
     
     private(set) var movieViewModel: MovieCellViewModel?
-    @IBOutlet weak var thumbImageVIew: UIImageView!
+    @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var movieYearLabel: UILabel!
     
@@ -32,7 +32,7 @@ class MovieTableViewCell: UITableViewCell {
         
         self.movieViewModel?.networkRequest?.cancel()
         self.movieViewModel?.image { [weak self] data in
-            self?.thumbImageVIew.image = UIImage(data: data)
+            self?.thumbImageView.image = UIImage(data: data)
         }
     }
     

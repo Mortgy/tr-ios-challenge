@@ -56,7 +56,7 @@
             <connections>
                 <outlet property="movieNameLabel" destination="IkC-ta-ruc" id="C1q-Hn-uvz"/>
                 <outlet property="movieYearLabel" destination="hFl-eE-Aaz" id="cG6-Wh-KZC"/>
-                <outlet property="thumbImageVIew" destination="YVK-Wq-vnC" id="YIT-1c-2uG"/>
+                <outlet property="thumbImageView" destination="YVK-Wq-vnC" id="E4x-RJ-QiP"/>
             </connections>
             <point key="canvasLocation" x="-42.028985507246382" y="67.633928571428569"/>
         </tableViewCell>

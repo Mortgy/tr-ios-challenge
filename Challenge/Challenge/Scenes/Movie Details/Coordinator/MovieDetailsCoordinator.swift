@@ -33,10 +33,5 @@ class MovieDetailsCoordinator: Coordinator {
     
     func open(id: Int) {
         parentCoordinator?.open(movieId: id)
-//        let movieDetailsCoordinator = MovieDetailsCoordinator(navigationController: navigationController, movieId: movieId)
-//        movieDetailsCoordinator.parentCoordinator = self
-//        childCoordinators.append(movieDetailsCoordinator)
-//        movieDetailsCoordinator.movieId = id
-//        movieDetailsCoordinator.start()
     }
 }

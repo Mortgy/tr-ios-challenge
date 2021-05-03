@@ -11,7 +11,6 @@ import SENetworking
 class MovieDetailsViewModel : MovieDetailsRequestProtocol, NetworkServicesProtocol {
 
     let networkServices: NetworkServices
-    private(set) var image: Publisher<Data> = Publisher(nil)
     private(set) var movie: Publisher<MovieDetailsModel> = Publisher(nil)
     private(set) var errorMessage: Publisher<String> = Publisher(nil)
 
@@ -26,7 +25,6 @@ class MovieDetailsViewModel : MovieDetailsRequestProtocol, NetworkServicesProtoc
     func fetchData() {
         networkRequest = networkServices.fetchDetails(with: movieDetailRequest){ [weak self] result in
             self?.movie.value = result
-            self?.fetchImage()
         } fail: { [weak self] message in
             self?.errorMessage.value = message
         }
@@ -56,17 +54,7 @@ extension MovieDetailsViewModel {
         movie.value?.notes ?? ""
     }
     
-    private var picture: String {
-        movie.value?.picture?.replacingOccurrences(of: DIContainer.shared.networkConfiguration.apiBaseURL.absoluteString, with: "") ?? ""
-    }
-    
-    
-    func fetchImage() {
-        _ = networkServices.fetchImage(path: picture) { [weak self] result in
-            self?.image.value = result
-        } fail: { _ in
-            
-        }
-
+    var picture: URL? {
+        URL(string: movie.value?.picture ?? "")
     }
 }

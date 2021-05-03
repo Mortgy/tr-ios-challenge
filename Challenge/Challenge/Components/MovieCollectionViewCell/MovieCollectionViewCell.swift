@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieCollectionViewCell: UICollectionViewCell {
 
@@ -19,10 +20,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
     func configure(movieViewModel: MovieCellViewModel) {
         self.movieViewModel = movieViewModel
-        self.movieViewModel?.networkRequest?.cancel()
-        self.movieViewModel?.image { [weak self] data in
-            self?.movieImageView.image = UIImage(data: data)
-        }
+        guard let pictureUrl = self.movieViewModel?.thumbnail else { return }
+        self.movieImageView.kf.setImage(with: pictureUrl, options: [.loadDiskFileSynchronously, .cacheOriginalImage, .transition(.fade(0.25))])
     }
     
 }

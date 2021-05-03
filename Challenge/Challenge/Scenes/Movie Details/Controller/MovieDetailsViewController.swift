@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieDetailsViewController: UIViewController, Alert {
     
@@ -51,12 +52,9 @@ extension MovieDetailsViewController {
                 self?.movieReleaseDateLabel.text = self?.viewModel.releaseDate
                 self?.movieDescriptionLabel.text = self?.viewModel.description
                 self?.moviePlotLabel.text = self?.viewModel.plot
-            }
-        }
-        self.viewModel.image.subscribe { [weak self] data in
-            guard let data = data else { return }
-            DispatchQueue.main.async {
-                self?.moviePosterImageView.image = UIImage(data: data)
+                guard let pictureUrl = self?.viewModel.picture else { return }
+                self?.moviePosterImageView.kf.setImage(with: pictureUrl, options: [.loadDiskFileSynchronously, .cacheOriginalImage, .transition(.fade(0.25))])
+
             }
         }
         

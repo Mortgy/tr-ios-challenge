@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieTableViewCell: UITableViewCell {
     
@@ -29,11 +30,8 @@ class MovieTableViewCell: UITableViewCell {
         self.movieViewModel = movieViewModel
         movieNameLabel.text = self.movieViewModel?.name
         movieYearLabel.text = self.movieViewModel?.year
-        
-        self.movieViewModel?.networkRequest?.cancel()
-        self.movieViewModel?.image { [weak self] data in
-            self?.thumbImageView.image = UIImage(data: data)
-        }
+        guard let pictureUrl = self.movieViewModel?.thumbnail else { return }
+        self.thumbImageView.kf.setImage(with: pictureUrl, options: [.loadDiskFileSynchronously, .cacheOriginalImage, .transition(.fade(0.25))])
     }
     
 }

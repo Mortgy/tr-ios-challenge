@@ -8,16 +8,13 @@
 import Foundation
 import SENetworking
 
-struct MovieCellViewModel: NetworkServicesProtocol {
+struct MovieCellViewModel {
     
-    weak var networkService: NetworkServices?
-    var networkRequest: NetworkCancellable?
 
     let movie: MovieModel
     
-    init(movie: MovieModel, networkService: NetworkServices?) {
+    init(movie: MovieModel) {
         self.movie = movie
-        self.networkService = networkService
     }
     
     var name: String {
@@ -34,17 +31,8 @@ struct MovieCellViewModel: NetworkServicesProtocol {
         return ""
     }
     
-    private var thumbnail: String {
-        movie.thumbnail?.replacingOccurrences(of: DIContainer.shared.networkConfiguration.apiBaseURL.absoluteString, with: "") ?? ""
-    }
-    
-    mutating func image(data: @escaping (Data) -> Void) {
-        networkRequest = networkService?.fetchImage(path: thumbnail) { result in
-            data(result)
-        } fail: { _ in
-            
-        }
-
+    var thumbnail: URL? {
+        URL(string: movie.thumbnail ?? "")
     }
     
 }

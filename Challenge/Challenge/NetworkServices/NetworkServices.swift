@@ -16,5 +16,4 @@ protocol NetworkServices: AnyObject {
     func fetchMovies(with request: MoviesRequest, success: @escaping (MoviesModel) -> Void, fail: @escaping (String) -> Void) -> NetworkCancellable?
     func fetchDetails(with request: MovieDetailsRequest, success: @escaping (MovieDetailsModel) -> Void, fail: @escaping (String) -> Void) -> NetworkCancellable?
     func fetchRecommended(with request: RecommendedRequest, success: @escaping (MoviesModel) -> Void, fail: @escaping (String) -> Void) -> NetworkCancellable?
-    func fetchImage(path: String, success: @escaping (Data) -> Void, fail: @escaping (String) -> Void) -> NetworkCancellable?
 }

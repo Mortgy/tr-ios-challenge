@@ -25,7 +25,7 @@ class MoviesViewModel : MoviesRequestProtocol, NetworkServicesProtocol {
     func fetchData() {
         networkRequest = networkServices?.fetchMovies(with: moviesRequest){ [weak self] result in
             self?.movies.value = result.movies?.compactMap {
-                MovieCellViewModel(movie: $0, networkService: self?.networkServices)
+                MovieCellViewModel(movie: $0)
             }
         } fail: { [weak self] message in
             self?.errorMessage.value = message

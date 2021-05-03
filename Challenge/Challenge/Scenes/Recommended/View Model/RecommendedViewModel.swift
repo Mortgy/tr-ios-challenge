@@ -25,7 +25,7 @@ class RecommendedViewModel : RecommendedRequestProtocol, NetworkServicesProtocol
     func fetchData() {
         networkRequest = networkServices.fetchRecommended(with: recommendedRequest){ [weak self] result in
             self?.recommended.value = result.movies?.compactMap {
-                MovieCellViewModel(movie: $0, networkService: self?.networkServices)
+                MovieCellViewModel(movie: $0)
             }
         } fail: { [weak self] message in
             self?.errorMessage.value = message

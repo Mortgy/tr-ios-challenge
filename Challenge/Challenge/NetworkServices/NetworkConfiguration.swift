@@ -16,12 +16,12 @@ struct NetworkConfiguration {
 
 class DIContainer {
     static let shared = DIContainer()
-
+    
     lazy var networkConfiguration = NetworkConfiguration()
-
+    
     lazy var apiDataTransferService: DataTransferService = {
         let config = ApiDataNetworkConfig(baseURL: networkConfiguration.apiBaseURL)
-
+        
         let apiDataNetwork = DefaultNetworkService(config: config)
         return DefaultDataTransferService(with: apiDataNetwork)
     }()
